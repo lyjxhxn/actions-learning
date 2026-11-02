@@ -1,0 +1,22 @@
+name: Hello GitHub Actions
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 打印欢迎语
+        run: echo "你好，GitHub Actions！"
+
+      - name: 显示运行信息
+        run: |
+          echo "仓库：${{ github.repository }}"
+          echo "触发方式：${{ github.event_name }}"
+          echo "当前时间：$(date -u)"
